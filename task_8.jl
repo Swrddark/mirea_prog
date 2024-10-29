@@ -29,3 +29,16 @@ function search_door!(r::Robot,side::HorizonSide)
             side = invers(side)
     end
 end
+function invers(side::HorizonSide)
+    if side == Nord
+        return Süd       # Если текущее направление - север, то возвращаем юг
+    elseif side == Süd
+        return Nord      # Если текущее направление - юг, то возвращаем север
+    elseif side == Ost
+        return West      # Если текущее направление - восток, то возвращаем запад
+    elseif side == West
+        return Ost       # Если текущее направление - запад, то возвращаем восток
+    else
+        error("Неправильное направление!")
+    end
+end
